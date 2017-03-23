@@ -1,0 +1,18 @@
+## zshrc file by me
+
+## Setup Hombrew PATH
+export PATH=$PATH:/usr/local/bin
+## Add Zsh env var
+export ZSH=/Users/erik.ferm/.oh-my-zsh
+
+## Set zsh theme
+ZSH_THEME="clean"
+
+## Add which zsh plugins to use 
+plugins=(git)
+
+## Source oh-my-zsh
+source $ZSH/oh-my-zsh.sh
+
+## Add aliases
+alias vim=nvim
