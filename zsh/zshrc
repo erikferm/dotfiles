@@ -2,8 +2,21 @@
 
 ## Setup Hombrew PATH
 export PATH=$PATH:/usr/local/bin
+
+## Setup CDPATH
+export CDPATH=.:$HOME:$HOME/code/src/github.com
+
+## Golang variables
+export GOPATH=$HOME/code
+export GOBIN=$HOME/code/bin
+export PATH=$PATH:$GOPATH:$GOBIN
+
+## Vim variables
+export VIMRC=$HOME/.config/nvim/init.vim
+
 ## Add Zsh env var
 export ZSH=/Users/erik.ferm/.oh-my-zsh
+export ZSHRC=$HOME/.zshrc
 
 ## Set zsh theme
 ZSH_THEME="clean"
@@ -16,3 +29,6 @@ source $ZSH/oh-my-zsh.sh
 
 ## Add aliases
 alias vim=nvim
+alias evr='vim $VIMRC'
+alias ezr='vim $ZSHRC'
+alias szr='source $ZSHRC'
