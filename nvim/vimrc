@@ -1,5 +1,8 @@
-" Thie is basically fatihs vimrc file https://github.com/fatih 
+" This is basically fatihs vimrc file https://github.com/fatih 
 call plug#begin('~/.config/nvim/plugged')
+" Autocomplete
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'ConradIrwin/vim-bracketed-paste'
@@ -213,6 +216,8 @@ nnoremap <leader>ui :<C-u>call <SID>create_go_doc_comment()<CR>
 "
 "===================== PLUGINS ======================
 "
+" ==================== deoplete ====================
+let g:deoplete#enable_at_startup = 1
 
 " ==================== Fugitive ====================
 vnoremap <leader>gb :Gblame<CR>
