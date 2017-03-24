@@ -7,3 +7,5 @@ if [ -z "$GO" ]; then
 else
 	echo "Go already installed. Run 'brew update go' to update"
 fi
+mkdir -p $HOME/code $HOME/code/bin
+echo "Don't forget to set GOPATH and GOBIN environment variables and add them to your PATH"
