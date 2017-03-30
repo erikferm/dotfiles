@@ -23,4 +23,3 @@ if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/google
 ## source stuff 
 source $HOME/.aliases
 source $HOME/.envvars
-
