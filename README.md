@@ -10,3 +10,10 @@ neovim                         Will install & setup neovim
 zshell                         Will install & setup zsh
 help                           Display this help message
 ```
+
+## Ubuntu
+For this setup to work on ubuntu you need git and make. Before using make run:
+```zsh
+sudo apt-get update
+sudo apt-get install build-essential git
+```
