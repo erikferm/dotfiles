@@ -1,0 +1,3 @@
+## zsh aliases
+alias ezr='vim $ZSHRC'
+alias szr='source $ZSHRC'

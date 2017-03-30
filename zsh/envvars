@@ -1,0 +1,2 @@
+## zsh variables
+export ZSHRC=$HOME/.zshrc
