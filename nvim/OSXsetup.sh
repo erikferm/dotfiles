@@ -6,21 +6,17 @@ bash $(pwd)/python3/setup.sh
 NVIMPYTHON=$(pip3 show neovim | grep Version)
 if [ -z "$NVIMPYTHON" ]; then
 	pip3 install --upgrade neovim
-else
-	echo "Neovim-python $NVIMPYTHON already installed. Run 'pip3 install --upgrade neovim' to update"
 fi
 
 ## Install neovim
 NVIM=$(which nvim)
 if [ -z "$NVIM" ]; then
 	brew install neovim/neovim/neovim
-else
-	echo "Neovim is already installed. Run 'brew update neovim/neovim/neovim' to update"
 fi
 
 ## Setup neovim
 VIMRC=$HOME/.config/nvim/init.vim
-HERE=$(pwd)/nvim
+HERE=$PWD/nvim
 if [ -f "$VIMRC" ]; then
 	LINKED_VIMRC=$(ls -l $VIMRC | awk -F "-> " '{print $2}')
 	if [ "$LINKED_VIMRC" = "$HERE/vimrc" ]; then
