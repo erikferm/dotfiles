@@ -1,7 +1,5 @@
 #!/bin/bash
 
-bash $(pwd)/python3/setup.sh
-
 ## Install neovim-python
 NVIMPYTHON=$(pip3 show neovim | grep Version)
 if [ -z "$NVIMPYTHON" ]; then

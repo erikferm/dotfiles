@@ -3,10 +3,13 @@ PWD=$(shell pwd)
 setup: ## will add envvars and aliases file if doesn't exist
 	sh base/setup.sh
 
+python: setup ## Will install python3
+	sh python3/setup.sh
+
 golang: setup ## Will install go
 	sh go/setup.sh
 
-neovim: setup ## Will install neovim
+neovim: python ## Will install neovim
 	sh nvim/setup.sh
 
 zshell: setup ## Will setup zsh
