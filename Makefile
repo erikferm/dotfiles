@@ -1,12 +1,15 @@
 PWD=$(shell pwd)
 
-golang: ## Will install go
+setup: ## will add envvars and aliases file if doesn't exist
+	sh base/setup.sh
+
+golang: setup ## Will install go
 	sh go/setup.sh
 
-neovim: ## Will install neovim
+neovim: setup ## Will install neovim
 	sh nvim/setup.sh
 
-zshell: ## Will setup zsh
+zshell: setup ## Will setup zsh
 	sh zsh/setup.sh
 
 help: ## Display this help message
