@@ -1,0 +1,4 @@
+## Golang variables
+export GOPATH=$HOME/code
+export GOBIN=$HOME/code/bin
+export PATH=$PATH:$GOPATH:$GOBIN
