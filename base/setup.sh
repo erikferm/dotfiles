@@ -30,3 +30,8 @@ MACOS=$(uname -a | grep Darwin)
 if [ ! -z "$MACOS" ]; then
 	bash $PWD/base/homebrew.sh
 fi
+UBUNTU=$(uname -a | grep Linux)
+if [ ! -z "$UBUNTU" ]; then
+	sudo apt-get update
+	sudo apt-get install -y software-properties-common curl git
+fi

@@ -3,7 +3,6 @@
 ## Install neovim
 NVIM=$(which nvim)
 if [ -z "$NVIM" ]; then
-	sudo add-apt-repository ppa:neovim-ppa/stable
-	sudo apt-get update
-	sudo apt-get install neovim
+	sudo add-apt-repository ppa:neovim-ppa/unstable -y
+	sudo apt-get install -y neovim
 fi

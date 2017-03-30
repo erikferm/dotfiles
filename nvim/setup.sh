@@ -5,7 +5,7 @@ if [ ! -z "$MACOS" ]; then
 	bash $PWD/nvim/OSXInstall.sh
 fi
 
-UBUNTU=$(uname -a | grep Ubuntu)
+UBUNTU=$(uname -a | grep Linux)
 if [ ! -z "$UBUNTU" ]; then
 	bash $PWD/nvim/ubuntuInstall.sh
 fi

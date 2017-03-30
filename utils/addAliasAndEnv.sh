@@ -7,7 +7,6 @@ if [ -f $HERE/aliases ]; then
 	ALIASES=$(cat $HERE/aliases)
 	for line in $ALIASES
 	do
-		echo "$line"
 		ALIASES_SET=$(cat $HOME/.aliases | grep "$line")
 		if [ -z "$ALIASES_SET" ]; then
 			echo "$ALIASES" >> $HOME/.aliases
