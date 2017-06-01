@@ -6,6 +6,9 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'zchee/deoplete-jedi'
 
+" Code Formating
+Plug 'Chiel92/vim-autoformat'
+
 " Language specific plugins
 Plug 'fatih/vim-go'
 
@@ -97,14 +100,15 @@ autocmd BufNewFile,BufRead *.md setlocal noet ts=4 sw=4
 autocmd BufNewFile,BufRead *.vim setlocal expandtab shiftwidth=2 tabstop=2
 autocmd BufNewFile,BufRead *.hcl setlocal expandtab shiftwidth=2 tabstop=2
 
-autocmd FileType json setlocal expandtab shiftwidth=2 tabstop=2
-autocmd FileType tf setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType json,tf,py setlocal expandtab shiftwidth=2 tabstop=2
+"autocmd FileType py setlocal expandtab shiftwidth=2 tabstop=2
 
 augroup filetypedetect
   autocmd BufNewFile,BufRead .tmux.conf*,tmux.conf* setf tmux
   autocmd BufNewFile,BufRead .nginx.conf*,nginx.conf* setf nginx
   autocmd BufNewFile,BufRead *.hcl setf conf
 augroup END
+
 
 "=====================================================
 "===================== STATUSLINE ====================
@@ -232,6 +236,10 @@ let g:deoplete#enable_at_startup = 1
 
 " Enable tab
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+" ================= vim-autoformat ==================
+" The autoformat for python files needs to have autopep8 installed
+autocmd BufWrite *.py :Autoformat
 
 " ==================== Fugitive ====================
 "vnoremap <leader>gb :Gblame<CR>
