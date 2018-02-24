@@ -94,6 +94,7 @@ command! -nargs=* -complete=help Help vertical belowright help <args>
 autocmd FileType help wincmd L
 
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 
+autocmd BufNewFile,BufRead *.js setlocal noexpandtab tabstop=2 shiftwidth=2
 autocmd BufNewFile,BufRead *.ino setlocal noet ts=4 sw=4 sts=4
 autocmd BufNewFile,BufRead *.txt setlocal noet ts=4 sw=4
 autocmd BufNewFile,BufRead *.md setlocal noet ts=4 sw=4
@@ -239,7 +240,8 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " ================= vim-autoformat ==================
 " The autoformat for python files needs to have autopep8 installed
-autocmd BufWrite *.py :Autoformat
+autocmd BufWrite *.py,*.go :Autoformat
+
 
 " ==================== Fugitive ====================
 "vnoremap <leader>gb :Gblame<CR>
