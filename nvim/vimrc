@@ -101,7 +101,7 @@ autocmd BufNewFile,BufRead *.md setlocal noet ts=4 sw=4
 autocmd BufNewFile,BufRead *.vim setlocal expandtab shiftwidth=2 tabstop=2
 autocmd BufNewFile,BufRead *.hcl setlocal expandtab shiftwidth=2 tabstop=2
 
-autocmd FileType json,tf,py setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType json,tf,py,yaml setlocal expandtab shiftwidth=2 tabstop=2
 "autocmd FileType py setlocal expandtab shiftwidth=2 tabstop=2
 
 augroup filetypedetect
