@@ -22,3 +22,6 @@ if [ ! -z "$UBUNTU" ]; then
 	fi
 fi
 
+bash $PWD/utils/addAliasAndEnv.sh $PWD/python3
+
+
