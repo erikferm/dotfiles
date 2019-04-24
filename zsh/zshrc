@@ -9,17 +9,22 @@ export CDPATH=.:$HOME:$HOME/code/src/github.com
 ## Set zsh theme
 ZSH_THEME="clean"
 
-source $HOME/.oh-my-zsh/oh-my-zsh.sh
-
 ## Add which zsh plugins to use 
-plugins=(git)
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/google-cloud-sdk/path.zsh.inc"; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
+plugins=(git zsh-autosuggestions)
 
 ## source stuff 
+source $HOME/.oh-my-zsh/oh-my-zsh.sh
 source $HOME/.aliases
 source $HOME/.envvars
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/erikferm/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/erikferm/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/erikferm/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/erikferm/google-cloud-sdk/completion.zsh.inc'; fi
+
+export NVM_DIR="$HOME/.nvm"
+source $(brew --prefix nvm)/nvm.sh
+
+#eval pyenv
+eval "$(pyenv init -)"

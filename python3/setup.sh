@@ -9,6 +9,7 @@ MACOS=$(uname -a | grep Darwin)
 if [ ! -z "$MACOS" ]; then
 	if [ -z "$PYTHON3" ]; then
 		brew install --upgrade python3
+		pip3 install jedi
 	fi
 fi
 
