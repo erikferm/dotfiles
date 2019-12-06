@@ -104,7 +104,6 @@ set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
 
-
 "" Fix backspace indent
 set backspace=indent,eol,start
 
@@ -126,6 +125,9 @@ set incsearch
 set ignorecase
 set smartcase
 
+"" Do not use swapfiles
+set noswapfile
+
 set fileformats=unix,dos,mac
 
 if exists('$SHELL')
@@ -133,6 +135,14 @@ if exists('$SHELL')
 else
     set shell=/bin/sh
 endif
+
+"" Do not autoinsert from autocomplete suggestuions
+set completeopt+=noinsert
+
+"" Use blinking bar while in insert
+set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175
+"" Set the curesor style back when exiting
+au VimLeave * set guicursor=a:ver25
 
 " session management
 let g:session_directory = "~/.config/nvim/session"
@@ -485,8 +495,10 @@ augroup END
 
 " html
 " for html files, 2 spaces
-autocmd Filetype html setlocal ts=2 sw=2 expandtab
+autocmd filetype html setlocal ts=2 sw=2 expandtab
 
+" sql
+autocmd filetype sql setlocal ts=2 sw=2 expandtab
 
 " python
 " vim-python
@@ -568,3 +580,5 @@ else
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
 endif
+
+
