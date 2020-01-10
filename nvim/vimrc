@@ -7,6 +7,7 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'fatih/vim-go'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'tpope/vim-abolish'
+Plug 'scrooloose/nerdtree'
 
 call plug#end()
 
@@ -32,9 +33,9 @@ filetype indent on
 set nu
 
 "" Tabs. May be overridden by autocmd rules
-set tabstop=4
+set tabstop=2
 set softtabstop=0
-set shiftwidth=4
+set shiftwidth=2
 set expandtab
 
 "" Map leader to ,
@@ -135,3 +136,7 @@ let g:go_fmt_fail_silently = 1
 
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
 
+"**************************************************************************************************
+" NERDTree settings
+"**************************************************************************************************
+nnoremap <leader>n :NERDTreeToggle<CR>
