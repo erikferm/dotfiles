@@ -42,7 +42,8 @@ set expandtab
 let mapleader=','
 "" Do not use swapfiles
 set noswapfile
-
+"" Make the yank buffer available in clipboard and vice verca
+set clipboard=unnamedplus
 "" center on next selected after search
 nnoremap n nzzzv
 nnoremap N Nzzzv
@@ -134,7 +135,7 @@ let g:go_fmt_command = "goimports"
 let g:go_list_type = "quickfix"
 let g:go_fmt_fail_silently = 1
 
-autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=2 shiftwidth=2 softtabstop=2
 
 "**************************************************************************************************
 " NERDTree settings
