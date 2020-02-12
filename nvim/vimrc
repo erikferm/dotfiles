@@ -8,6 +8,8 @@ Plug 'fatih/vim-go'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'tpope/vim-abolish'
 Plug 'scrooloose/nerdtree'
+" This was installed with homebrew
+Plug '/usr/local/opt/fzf'
 
 call plug#end()
 
@@ -128,12 +130,15 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 "**************************************************************************************************
 " vim-go settings
 "**************************************************************************************************
+"install gopls via https://github.com/golang/tools/blob/master/gopls/doc/user.md
 " disable vim-go :GoDef short cut (gd)
 " this is handled by LanguageClient [LC]
 let g:go_def_mapping_enabled = 0
 let g:go_fmt_command = "goimports"
 let g:go_list_type = "quickfix"
 let g:go_fmt_fail_silently = 1
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
 
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=2 shiftwidth=2 softtabstop=2
 
@@ -141,3 +146,8 @@ autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=2 shiftwidth=2 soft
 " NERDTree settings
 "**************************************************************************************************
 nnoremap <leader>n :NERDTreeToggle<CR>
+
+"**************************************************************************************************
+" FZF settings
+"**************************************************************************************************
+nnoremap <silent> <C-p> :FZF<CR>
