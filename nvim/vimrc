@@ -140,8 +140,13 @@ let g:go_list_type = "quickfix"
 let g:go_fmt_fail_silently = 1
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
+augroup go
+  autocmd!
+  autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=2 shiftwidth=2 softtabstop=2
+  autocmd FileType go nnoremap <silent> ga :GoAlternate!<CR>
+  autocmd FileType go nnoremap <silent> gc :GoCoverageToggle<CR>
+augroup END
 
-autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=2 shiftwidth=2 softtabstop=2
 
 "**************************************************************************************************
 " NERDTree settings
