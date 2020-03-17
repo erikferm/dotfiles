@@ -9,6 +9,7 @@ Plug 'fatih/vim-go'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'tpope/vim-abolish'
 Plug 'scrooloose/nerdtree'
+Plug 'christoomey/vim-tmux-navigator'
 " This was installed with homebrew
 Plug '/usr/local/opt/fzf'
 
@@ -57,6 +58,12 @@ imap jk <Esc>
 "" Split
 noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
+
+"" Move between splits with ctrl
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
 
 "" Clean search (highlight)
 nnoremap <silent> <leader><space> :noh<cr>
