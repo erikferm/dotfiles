@@ -4,7 +4,7 @@ set fish_greeting
 set fish_color_autosuggestion "808080"
 set fish_color_command --bold "00afaf"
 set fish_color_comment --bold "808080"
-set fish_color_cwd "ff5faf"
+set fish_color_cwd "5f8787"
 set fish_color_end "ffaf00"
 set fish_color_operator "ffaf00"
 set fish_color_param "d7875f"
@@ -24,10 +24,19 @@ set -x __fish_git_prompt_show_informative_status true
 
 ## CDPath
 set -x CDPATH . ~/code/src/github.com/
+set -ax PATH /Users/erikferm/google-cloud-sdk/bin /Users/erikferm/code/bin
 
 ## Go stuff
 set -x GOROOT /usr/local/opt/go/libexec/
 set -x GOPATH ~/code
 set -x GOBIN ~/code/bin
 
+## LC vars
+set -x LC_ALL en_US.UTF-8
+
+## LSCOLORS
+set -x LSCOLORS Cxfxbxbxbxegedbgbchcch
+
+## aliases
 alias vim="nvim"
+alias tmux="tmux -u"
