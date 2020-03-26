@@ -21,7 +21,7 @@ function l
     set symlinks
     for a in $argv
       if test -d $a
-        set -a dirs $a | sort
+        set -a dirs "$a/" | sort
         continue
       end
       if test -e $a
@@ -70,7 +70,7 @@ function l
     echo $argv[1] 
     for a in $dirs
       set d (echo $a | string split ';')
-      _print_with_flag $d[2] $fish_color_dir $d[1]
+      _print_with_flag $d[2] $fish_color_dir "$d[1]/"
     end
     for a in $symlinks
       set d (echo $a | string split ';')

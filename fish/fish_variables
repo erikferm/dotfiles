@@ -7,7 +7,7 @@ SETUVAR fish_color_command:\x2d\x2dbold\x1e00afaf
 SETUVAR fish_color_comment:\x2d\x2dbold\x1e808080
 SETUVAR fish_color_cwd:5f8787
 SETUVAR fish_color_cwd_root:red
-SETUVAR fish_color_dir:afd700
+SETUVAR fish_color_dir:5faf5f
 SETUVAR fish_color_end:ffaf00
 SETUVAR fish_color_error:ff0000
 SETUVAR fish_color_escape:00a6b2
