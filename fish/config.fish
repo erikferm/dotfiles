@@ -1,18 +1,18 @@
 ## Fish configuration
 #prompt colors
-set fish_greeting 
-set fish_color_autosuggestion "808080"
-set fish_color_command --bold "00afaf"
-set fish_color_comment --bold "808080"
-set fish_color_cwd "5f8787"
-set fish_color_dir "005f00"
-set fish_color_symlink "ff5faf"
-set fish_color_end "ffaf00"
-set fish_color_operator "ffaf00"
-set fish_color_param "d7875f"
-set fish_color_quote "d7af5f"
-set fish_color_redirection "ffaf00"
-set fish_color_user "5f8787"
+set -U fish_greeting 
+set -U fish_color_autosuggestion "808080"
+set -U fish_color_command --bold "00afaf"
+set -U fish_color_comment --bold "808080"
+set -U fish_color_cwd "5f8787"
+set -U fish_color_dir "afd700"
+set -U fish_color_symlink "ff5faf"
+set -U fish_color_end "ffaf00"
+set -U fish_color_operator "ffaf00"
+set -U fish_color_param "d7875f"
+set -U fish_color_quote "d7af5f"
+set -U fish_color_redirection "ffaf00"
+set -U fish_color_user "5f8787"
 
 ## Git config
 # https://github.com/fish-shell/fish-shell/blob/master/share/functions/fish_git_prompt.fish

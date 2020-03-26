@@ -1,4 +1,4 @@
-function ls_test
+function l
 
   function _print_with_flag -a before color dir
     printf "%s%s %s\n" $before (set_color $color) $dir
