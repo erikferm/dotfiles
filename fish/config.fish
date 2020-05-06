@@ -26,12 +26,14 @@ set -x __fish_git_prompt_show_informative_status true
 
 ## CDPath
 set -x CDPATH . ~/code/src/github.com/
-set -ax PATH /Users/erikferm/google-cloud-sdk/bin /Users/erikferm/code/bin
 
 ## Go stuff
 set -x GOROOT /usr/local/opt/go/libexec/
 set -x GOPATH ~/code
 set -x GOBIN ~/code/bin
+
+## Add GOBIN to PATH
+set -ax PATH $GOBIN
 
 ## LC vars
 set -x LC_ALL en_US.UTF-8
