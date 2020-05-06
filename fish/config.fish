@@ -27,6 +27,9 @@ set -x __fish_git_prompt_show_informative_status true
 ## CDPath
 set -x CDPATH . ~/code/src/github.com/
 
+## Editor
+set -x EDITOR nvim
+
 ## Go stuff
 set -x GOROOT /usr/local/opt/go/libexec/
 set -x GOPATH ~/code
