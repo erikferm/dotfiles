@@ -6,7 +6,7 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 Plug 'ekalinin/dockerfile.vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'fatih/vim-go'
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'branch':'release'}
 Plug 'tpope/vim-abolish'
 Plug 'scrooloose/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
