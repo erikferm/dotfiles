@@ -44,8 +44,6 @@ set -x PATH "/home/erikferm/.pyenv/bin" $PATH
 set -x CLOUDSDK_PYTHON (which python)
 #status --is-interactive; and source (pyenv init -|psub)
 
-## Add anaconda
-set -x PATH "/usr/local/anaconda3/bin" $PATH
 ## LC vars
 set -x LC_ALL en_US.UTF-8
 
@@ -58,11 +56,4 @@ set -x LSCOLORS Cxfxbxbxbxegedbgbchcch
 ## aliases
 alias vim="nvim"
 alias tmux="tmux -u"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-eval /usr/local/anaconda3/bin/conda "shell.fish" "hook" $argv | source
-## Do not have it activated by default
-conda deactivate
-# <<< conda initialize <<<
 
