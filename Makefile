@@ -9,7 +9,7 @@ python: setup ## Will install python3
 golang: setup ## Will install go
 	sh go/setup.sh
 
-neovim: python ## Will install neovim
+neovim: ## Will install neovim
 	sh nvim/setup.sh
 
 zshell: setup ## Will setup zsh
