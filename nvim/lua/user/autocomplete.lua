@@ -2,6 +2,33 @@
 -- Set options for the completion popup
 vim.opt.completeopt = { 'menuone', 'noselect' }
 
+-- local kind_icons = {
+--   Text = "T",
+--   Method = "M",
+--   Function = "F",
+--   Constructor = "C",
+--   Field = "f",
+--   Variable = "v",
+--   Class = "c",
+--   Interface = "i",
+--   Module = "",
+--   Property = "ﰠ",
+--   Unit = "",
+--   Value = "",
+--   Enum = "",
+--   Keyword = "",
+--   Snippet = "",
+--   Color = "",
+--   File = "",
+--   Reference = "",
+--   Folder = "",
+--   EnumMember = "",
+--   Constant = "",
+--   Struct = "",
+--   Event = "",
+--   Operator = "",
+--   TypeParameter = ""
+-- }
 
 local cmp = require('cmp')
 
@@ -25,6 +52,19 @@ cmp.setup({
       c = cmp.mapping.close(),
     }),
     ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+  },
+formatting = {
+    format = function(entry, vim_item)
+      -- Kind icons
+      -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+      -- Source
+      vim_item.menu = ({
+        buffer = "[Buffer]",
+        nvim_lsp = "[LSP]",
+        vsnip = "[Snippet]",
+      })[entry.source.name]
+      return vim_item
+    end
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
@@ -53,13 +93,3 @@ cmp.setup.cmdline(':', {
   })
 })
 
--- Setup lspconfig.
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
--- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-local lspconfig = require('lspconfig')
-lspconfig['sumneko_lua'].setup {
-  capabilities = capabilities
-}
-lspconfig['gopls'].setup {
-  capabilities = capabilities
-}

@@ -1,24 +1,6 @@
-require('keybindings')
-require('config')
-require('packages')
-require('autocomplete')
-
-local lsp_installer = require('nvim-lsp-installer')
-lsp_installer.on_server_ready(
-  function(server)
-    local opts = {}
-    if server.name == 'sumneko_lua' then
-      opts = {
-        settings = {
-          Lua = {
-            diagnostics = {
-              globals = { 'vim', 'use' }
-            }
-          }
-        }
-      }
-    end
-    server:setup(opts)
-  end
-)
-
+require('user.config')
+require('user.packages')
+require('user.keybindings')
+require('user.autocomplete')
+require('user.lsp')
+require('user.telescope.config')

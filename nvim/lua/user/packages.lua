@@ -16,6 +16,16 @@ require('packer').startup(
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
+    use {
+      'nvim-telescope/telescope.nvim',
+      requires = {
+          'nvim-lua/plenary.nvim',
+          'nvim-lua/popup.nvim',
+          'kyazdani42/nvim-web-devicons',
+          'BurntSushi/ripgrep'
+      }
+    }
+    use { "nvim-telescope/telescope-file-browser.nvim" }
   end
 )
 

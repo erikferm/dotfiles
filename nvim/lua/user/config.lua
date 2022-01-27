@@ -1,4 +1,6 @@
 local o = vim.opt
+-- Leader key
+vim.g.mapleader = ','
 -- Tabs
 o.expandtab = true
 o.shiftwidth = 2
@@ -21,3 +23,4 @@ o.swapfile = false
 
 -- Make the yank buffer available in clipboard and vice verca
 o.clipboard = 'unnamedplus'
+
