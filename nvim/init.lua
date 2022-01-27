@@ -1,6 +1,6 @@
 require('user.config')
 require('user.packages')
-require('user.keybindings')
+require('user.nerdtree')
 require('user.autocomplete')
 require('user.lsp')
 require('user.telescope.config')

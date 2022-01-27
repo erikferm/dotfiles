@@ -20,7 +20,7 @@ local servers = {lua, go}
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local opts = { noremap = true }
-  buf_set_keymap('n', 'gd', ':lua vim.lsp.buf.definition()<cr>', opts)
+  buf_set_keymap('n', 'gd', ':lua vim.lsp.buf.definition()<cr>zz', opts)
   buf_set_keymap('n', 'gD', ':lua vim.lsp.buf.declaration()<cr>', opts)
   buf_set_keymap('n', 'gi', ':lua vim.lsp.buf.implementation()<cr>', opts)
   buf_set_keymap('n', 'gw', ':lua vim.lsp.buf.document_symbol()<cr>', opts)
