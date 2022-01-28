@@ -3,6 +3,7 @@ local actions = require('telescope.actions')
 
 t.setup {
   defaults ={
+    file_ignore_patterns = {"vendor"},
     mappings = {
       i = {
         ['<C-h>'] = actions.which_key,
