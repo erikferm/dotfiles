@@ -2,6 +2,7 @@ require('packer').startup(
   function()
     use 'wbthomason/packer.nvim'
     use 'NLKNguyen/papercolor-theme'
+    use 'rebelot/kanagawa.nvim'
     use 'christoomey/vim-tmux-navigator'
     use {
       'nvim-treesitter/nvim-treesitter',
@@ -18,12 +19,18 @@ require('packer').startup(
     use 'hrsh7th/cmp-cmdline'
     use 'preservim/nerdtree'
     use {
+      'nvim-lualine/lualine.nvim',
+      requires = {
+        'kyazdani42/nvim-web-devicons',
+      }
+    }
+    use {
       'nvim-telescope/telescope.nvim',
       requires = {
-          'nvim-lua/plenary.nvim',
-          'nvim-lua/popup.nvim',
-          'kyazdani42/nvim-web-devicons',
-          'BurntSushi/ripgrep'
+        'nvim-lua/plenary.nvim',
+        'nvim-lua/popup.nvim',
+        'kyazdani42/nvim-web-devicons',
+        'BurntSushi/ripgrep'
       }
     }
     use { "nvim-telescope/telescope-file-browser.nvim" }

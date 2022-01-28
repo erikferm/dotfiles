@@ -1,5 +1,6 @@
 require('user.config')
-require('user.packages')
+require('user.plugins')
+require('user.lualine')
 require('user.nerdtree')
 require('user.treesitter')
 require('user.autocomplete')

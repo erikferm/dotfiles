@@ -8,7 +8,8 @@ o.softtabstop = 0
 o.tabstop=2
 
 -- Colors
-vim.g.colors_name = 'PaperColor'
+-- vim.g.colors_name = 'PaperColor'
+vim.g.colors_name = 'kanagawa'
 o.background = 'dark'
 
 -- Encoding
