@@ -13,12 +13,15 @@ set -l purple 957FB8
 set -l cyan 7AA89F
 set -l pink D27E99
 
+set -g fish_color_cwd $green
+set -g fish_color_dir $purple
+set -g fish_color_symlink $red
+set -g fish_color_user $purple
+
 # Syntax Highlighting Colors
 set -g fish_color_autosuggestion $comment
 set -g fish_color_command $cyan
 set -g fish_color_comment $comment
-set -g fish_color_cwd $orange
-set -g fish_color_dir $orange
 set -g fish_color_end $orange
 set -g fish_color_error $red
 set -g fish_color_escape $pink
@@ -28,8 +31,6 @@ set -g fish_color_operator $green
 set -g fish_color_param $purple
 set -g fish_color_quote $yellow
 set -g fish_color_redirection $foreground
-set -g fish_color_symlink $foreground
-set -g fish_color_user $foreground
 set -g fish_color_search_match --background=$selection
 set -g fish_color_selection --background=$selection
 
@@ -38,6 +39,16 @@ set -g fish_pager_color_progress $comment
 set -g fish_pager_color_prefix $cyan
 set -g fish_pager_color_completion $foreground
 set -g fish_pager_color_description $comment
+
+## Git config
+# https://github.com/fish-shell/fish-shell/blob/master/share/functions/fish_git_prompt.fish
+set -x __fish_git_prompt_char_stateseparator ""
+set -x __fish_git_prompt_char_untrackedfiles "✗"
+set -x __fish_git_prompt_color_branch --bold $orange
+set -x __fish_git_prompt_color_flags --bold $red
+set -x __fish_git_prompt_color_prefix --bold $yellow
+set -x __fish_git_prompt_color_suffix --bold $yellow
+set -x __fish_git_prompt_show_informative_status true
 
 #DCD7BA
 #C8C093	

@@ -1,5 +1,5 @@
 ## Fish configuration
-source ~/.config/fish/themes/papercolor.fish
+source ~/.config/fish/themes/kanagawa.fish
 
 ## CDPath
 set -x CDPATH . ~/code/src/github.com/
@@ -28,7 +28,7 @@ set -x LC_ALL en_US.UTF-8
 set -x GOOGLE_APPLICATION_CREDENTIALS /Users/erikferm/.config/gcloud/application_default_credentials.json
 
 ## LSCOLORS
-set -x LSCOLORS Cxfxbxbxbxegedbgbchcch
+#set -x LSCOLORS Cxfxbxbxbxegedbgbchcch
 
 ## aliases
 alias vim="nvim"
