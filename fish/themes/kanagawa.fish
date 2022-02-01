@@ -41,7 +41,7 @@ set -l peachRed	FF5D62      #	Standout specials 2 (exception handling, return)
 set -l urimiOrange FFA066   # Constants, imports, booleans
 set -l katanaGray	717C7C    #	Deprecated
 
-# Syntax Highlighting Colors
+# Syntax Highlighting Colors from the kanagawa repo
 set -g fish_color_autosuggestion $fujiGray
 set -g fish_color_command $waveAqua2
 set -g fish_color_comment $fujiGray
@@ -51,7 +51,6 @@ set -g fish_color_escape $sakuraPink
 set -g fish_color_keyword $sakuraPink
 set -g fish_color_normal $fujiWhite
 set -g fish_color_operator $autumnGreen
-set -g fish_color_param $oniViolet
 set -g fish_color_quote $boatYellow2
 set -g fish_color_redirection $fujiWhite
 set -g fish_color_search_match --background=$waveBlue2
@@ -63,12 +62,13 @@ set -g fish_pager_color_prefix $waveAqua2
 set -g fish_pager_color_completion $fujiWhite
 set -g fish_pager_color_description $fujiGray
 
-#
-#set -g fish_color_cwd $autumnGreen
-set -g fish_color_dir $dragonBlue
-#set -g fish_color_symlink $carpYellow
-#set -g fish_color_user $oniViolet
-
+# Set by me
+set -g fish_color_cwd $sakuraPink
+set -g fish_color_dir $crystalBlue
+set -g fish_color_symlink $carpYellow
+set -g fish_color_user $oniViolet
+set -g fish_color_param $fujiWhite
+set -g fish_color_char $boatYellow2
 
 ## Git config
 # https://github.com/fish-shell/fish-shell/blob/master/share/functions/fish_git_prompt.fish
