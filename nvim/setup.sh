@@ -1,15 +1,5 @@
 #!/bin/bash
 
-MACOS=$(uname -a | grep Darwin)
-if [ ! -z "$MACOS" ]; then
-	bash $PWD/nvim/OSXInstall.sh
-fi
-
-UBUNTU=$(uname -a | grep Linux)
-if [ ! -z "$UBUNTU" ]; then
-	bash $PWD/nvim/ubuntuInstall.sh
-fi
-
 ## Setup neovim
 VIMRC=$HOME/.config/nvim/init.lua
 LUA_CONFIG_TARGET=$HOME/.config/nvim/lua
@@ -36,5 +26,3 @@ else
 	ln -s "$LUA_INIT" "$VIMRC"
 	ln -s "$LUA_FILES" "$LUA_CONFIG_TARGET"
 fi
-
-bash $PWD/utils/addAliasAndEnv.sh $HERE
