@@ -9,6 +9,7 @@ o.tabstop=2
 
 -- Colors
 -- vim.g.colors_name = 'PaperColor'
+vim.o.termguicolors = true
 vim.g.colors_name = 'kanagawa'
 o.background = 'dark'
 
