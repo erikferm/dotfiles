@@ -1,5 +1,13 @@
 PWD=$(shell pwd)
 
+.PHONY: alacritty
+alacritty: ## Will install Alacritty
+	sh alacritty/setup.sh
+
+.PHONY: fish
+fish: ## Will install Alacritty
+	sh fish/setup.sh
+
 setup: ## will add envvars and aliases file if doesn't exist
 	sh base/setup.sh
 
