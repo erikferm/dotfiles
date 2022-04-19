@@ -27,8 +27,4 @@ set -x GOOGLE_APPLICATION_CREDENTIALS /Users/erikferm/.config/gcloud/application
 
 ## aliases
 alias vim="nvim"
-alias tmux="tmux -u"
-
-## Try to attach to running session
-tmux attach
-
+alias tmux="tmux -u -f ~/.config/tmux/tmux.conf"

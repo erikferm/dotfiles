@@ -1,12 +1,16 @@
 PWD=$(shell pwd)
 
 .PHONY: alacritty
-alacritty: ## Will install Alacritty
+alacritty: ## Will setup Alacritty
 	sh alacritty/setup.sh
 
 .PHONY: fish
-fish: ## Will install Alacritty
+fish: ## Will setup the fish shell
 	sh fish/setup.sh
+
+.PHONY: tmux
+tmux: ## Will setup the fish shell
+	sh tmux/setup.sh
 
 setup: ## will add envvars and aliases file if doesn't exist
 	sh base/setup.sh
