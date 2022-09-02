@@ -1,6 +1,7 @@
 local lua = require('user.lsp.sumneko_lua')
 local go = require('user.lsp.gopls')
 local pyright = require('user.lsp.pyright')
+local yaml = require('user.lsp.yaml')
 
 --local lsp_installer = require('nvim-lsp-installer')
 --lsp_installer.on_server_ready(
@@ -19,6 +20,7 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+
   local opts = { noremap = true }
   buf_set_keymap('n', 'gd', ':lua vim.lsp.buf.definition()<cr>zz', opts)
   buf_set_keymap('n', 'gD', ':lua vim.lsp.buf.declaration()<cr>', opts)
@@ -43,7 +45,7 @@ end
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 local lspconfig = require('lspconfig')
 
-local servers = {lua, go, pyright}
+local servers = { lua, go, pyright, yaml }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp.name].setup {
@@ -53,4 +55,3 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities
   }
 end
-
