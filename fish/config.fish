@@ -26,6 +26,14 @@ set -x JAVA_HOME (brew --prefix)'/opt/openjdk@11/libexec/openjdk.jdk/Contents/Ho
 ## Add GOBIN to PATH
 set -ax PATH $GOPATH/bin
 
+## DBT stuff
+set -x DBT_USER erik
+
+## PYENV stuff
+set -Ux PYENV_ROOT $HOME/.pyenv
+set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+pyenv init - | source
+
 ## LC vars
 set -x LANG en_US.UTF-8
 set -x LC_ALL en_US.UTF-8
@@ -36,16 +44,10 @@ set -x LIBRARY_PATH (brew --prefix)/lib
 set -x C_INCLUDE_PATH (brew --prefix)/include
 set -ax CFLAGS "-I$C_INCLUDE_PATH -L$LIBRARY_PATH"
 
-## LDFlags
-#set -x LDFLAGS "-L"(brew --prefix)"/lib"
-#set -x CPPFLAGS "-I"(brew --prefix)"/include"
-
 ## GOOGLE CLOUD CREDENTIALS
 set -ax PATH (brew --prefix)/bin
 set -x GOOGLE_APPLICATION_CREDENTIALS /Users/erikferm/.config/gcloud/application_default_credentials.json
 
-## LSCOLORS
-#set -x LSCOLORS Cxfxbxbxbxegedbgbchcch
 
 ## aliases
 alias vim="nvim"
