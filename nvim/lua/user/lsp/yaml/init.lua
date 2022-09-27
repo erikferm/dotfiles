@@ -1,9 +1,11 @@
 local server = {}
 
+local binary = vim.fn.stdpath('data') .. "/lsp_servers/yaml/node_modules/yaml-language-server/bin/yaml-language-server"
+
 server = {
-  name = 'yaml',
+  name = 'yamlls',
   filetypes = { 'yaml', 'yml' },
-  cmd = { 'yaml-language-server --stdio' },
+  cmd = { binary, '--stdio' },
   settings = {}
 }
 return server
