@@ -1,5 +1,17 @@
 PWD=$(shell pwd)
 
+.PHONY: alacritty
+alacritty: ## Will setup Alacritty
+	sh alacritty/setup.sh
+
+.PHONY: fish
+fish: ## Will setup the fish shell
+	sh fish/setup.sh
+
+.PHONY: tmux
+tmux: ## Will setup the fish shell
+	sh tmux/setup.sh
+
 setup: ## will add envvars and aliases file if doesn't exist
 	sh base/setup.sh
 
@@ -9,7 +21,7 @@ python: setup ## Will install python3
 golang: setup ## Will install go
 	sh go/setup.sh
 
-neovim: python ## Will install neovim
+neovim: ## Will install neovim
 	sh nvim/setup.sh
 
 zshell: setup ## Will setup zsh

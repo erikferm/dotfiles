@@ -1,3 +1,0 @@
-## VIM aliases
-alias vim=nvim
-alias evr='vim $VIMRC'

@@ -1,2 +1,0 @@
-## Set VIM variables
-VIMRC=$HOME/.config/nvim/init.vim

@@ -1,28 +1,15 @@
 ## Fish configuration
-#prompt colors
-set -U fish_greeting 
-set -U fish_color_autosuggestion "808080"
-set -U fish_color_command --bold "00afaf"
-set -U fish_color_comment --bold "808080"
-set -U fish_color_cwd "5f8787"
-set -U fish_color_dir "5faf5f"
-set -U fish_color_symlink "ff5faf"
-set -U fish_color_end "ffaf00"
-set -U fish_color_operator "ffaf00"
-set -U fish_color_param "d7875f"
-set -U fish_color_quote "d7af5f"
-set -U fish_color_redirection "ffaf00"
-set -U fish_color_user "5f8787"
+source ~/.config/fish/themes/kanagawa.fish
 
-## Git config
-# https://github.com/fish-shell/fish-shell/blob/master/share/functions/fish_git_prompt.fish
-set -x __fish_git_prompt_char_stateseparator ""
-set -x __fish_git_prompt_char_untrackedfiles "✗"
-set -x __fish_git_prompt_color_branch --bold "d7af00"
-set -x __fish_git_prompt_color_flags --bold red
-set -x __fish_git_prompt_color_prefix --bold "5f8787"
-set -x __fish_git_prompt_color_suffix --bold "5f8787"
-set -x __fish_git_prompt_show_informative_status true
+set arch (arch)
+if [ "$arch" = "arm64" ]
+  echo "AAAARM"
+  eval (/opt/homebrew/bin/brew shellenv)
+else if [ "$arch" = "i386" ]
+  echo "INTEEEEL"
+  eval (/usr/local/bin/brew shellenv)
+end 
+
 
 ## CDPath
 set -x CDPATH . ~/code/src/github.com/
@@ -31,29 +18,37 @@ set -x CDPATH . ~/code/src/github.com/
 set -x EDITOR nvim
 
 ## Go stuff
-set -x GOROOT /usr/local/opt/go/libexec/
 set -x GOPATH ~/code
-set -x GOBIN ~/code/bin
+
+## Java stuff
+set -x JAVA_HOME (brew --prefix)'/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home/'
 
 ## Add GOBIN to PATH
-set -ax PATH $GOBIN
-set -ax PATH /Users/erikferm/google-cloud-sdk/bin
+set -ax PATH $GOPATH/bin
 
-## Add Pyenv 
-set -x PATH "/home/erikferm/.pyenv/bin" $PATH
-set -x CLOUDSDK_PYTHON (which python)
-#status --is-interactive; and source (pyenv init -|psub)
+## DBT stuff
+set -x DBT_USER erik
+
+## PYENV stuff
+set -Ux PYENV_ROOT $HOME/.pyenv
+set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+pyenv init - | source
 
 ## LC vars
+set -x LANG en_US.UTF-8
 set -x LC_ALL en_US.UTF-8
+set -x LC_CTYPE en_US.UTF-8
+
+## CPATH
+set -x LIBRARY_PATH (brew --prefix)/lib
+set -x C_INCLUDE_PATH (brew --prefix)/include
+set -ax CFLAGS "-I$C_INCLUDE_PATH -L$LIBRARY_PATH"
 
 ## GOOGLE CLOUD CREDENTIALS
+set -ax PATH (brew --prefix)/bin
 set -x GOOGLE_APPLICATION_CREDENTIALS /Users/erikferm/.config/gcloud/application_default_credentials.json
 
-## LSCOLORS
-set -x LSCOLORS Cxfxbxbxbxegedbgbchcch
 
 ## aliases
 alias vim="nvim"
-alias tmux="tmux -u"
-
+alias tmux="tmux -u -f ~/.config/tmux/tmux.conf"
