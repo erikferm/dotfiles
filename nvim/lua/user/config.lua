@@ -27,6 +27,9 @@ o.swapfile = false
 -- Make the yank buffer available in clipboard and vice verca
 o.clipboard = 'unnamedplus'
 
+-- set cursorline
+o.cursorline = true
+--
 local keymap = require('user.keybindings')
 
 -- don't do recursive remapping

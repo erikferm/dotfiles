@@ -17,14 +17,19 @@ require('packer').startup(
     }
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer'
-    use 'hrsh7th/nvim-cmp'
-    use 'hrsh7th/vim-vsnip'
-    use 'hrsh7th/cmp-vsnip'
+
+    use {
+      'hrsh7th/nvim-cmp',
+      requires = { 'L3MON4D3/LuaSnip' }
+    }
+    -- cmp plugins
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-nvim-lua'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
+    use 'saadparwaiz1/cmp_luasnip'
+
     use 'preservim/nerdtree'
     use {
       'nvim-lualine/lualine.nvim',
