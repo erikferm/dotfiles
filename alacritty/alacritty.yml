@@ -1,3 +1,7 @@
+shell:
+program: /opt/homebrew/bin/fish
+args:
+  - --login
 # Kanagawa Alacritty Colors
 colors:
   primary:
