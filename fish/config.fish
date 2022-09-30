@@ -10,6 +10,8 @@ else if [ "$arch" = "i386" ]
   eval (/usr/local/bin/brew shellenv)
 end 
 
+# Add brew installations to path
+set -ax PATH (brew --prefix)/bin
 
 ## CDPath
 set -x CDPATH . ~/code/src/github.com/
@@ -19,12 +21,10 @@ set -x EDITOR nvim
 
 ## Go stuff
 set -x GOPATH ~/code
+set -ax PATH $GOPATH/bin
 
 ## Java stuff
 set -x JAVA_HOME (brew --prefix)'/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home/'
-
-## Add GOBIN to PATH
-set -ax PATH $GOPATH/bin
 
 ## DBT stuff
 set -x DBT_USER erik
@@ -44,10 +44,13 @@ set -x LIBRARY_PATH (brew --prefix)/lib
 set -x C_INCLUDE_PATH (brew --prefix)/include
 set -ax CFLAGS "-I$C_INCLUDE_PATH -L$LIBRARY_PATH"
 
-## GOOGLE CLOUD CREDENTIALS
-set -ax PATH (brew --prefix)/bin
-set -x GOOGLE_APPLICATION_CREDENTIALS /Users/erikferm/.config/gcloud/application_default_credentials.json
-
+## If gcloud is installed
+if type -q gcloud
+  ## GOOGLE CLOUD CREDENTIALS
+  set -x GOOGLE_APPLICATION_CREDENTIALS /Users/erikferm/.config/gcloud/application_default_credentials.json
+  ## Add gcloud components to path
+  set -ax PATH /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin
+end
 
 ## aliases
 alias vim="nvim"

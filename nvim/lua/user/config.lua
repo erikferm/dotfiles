@@ -5,7 +5,7 @@ vim.g.mapleader = ','
 o.expandtab = true
 o.shiftwidth = 2
 o.softtabstop = 0
-o.tabstop=2
+o.tabstop = 2
 
 -- Colors
 -- vim.g.colors_name = 'PaperColor'
@@ -29,7 +29,9 @@ o.clipboard = 'unnamedplus'
 
 local keymap = require('user.keybindings')
 
+-- don't do recursive remapping
 local opts = { noremap = true }
+
 -- Change windows with ctrl - hjkl
 keymap.set('n', '<C-h>', '<C-w>h', opts)
 keymap.set('n', '<C-j>', '<C-w>j', opts)
@@ -45,4 +47,3 @@ keymap.set('n', '<leader><space>', ':noh<cr>', opts)
 
 keymap.set('n', '<leader>h', ':split<cr>', opts)
 keymap.set('n', '<leader>v', ':vsplit<cr>', opts)
-
