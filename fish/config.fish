@@ -50,6 +50,8 @@ if type -q gcloud
   set -x GOOGLE_APPLICATION_CREDENTIALS /Users/erikferm/.config/gcloud/application_default_credentials.json
   ## Add gcloud components to path
   set -ax PATH /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin
+  ## Use auth_plugin for kubernetes
+  set -x USE_GKE_GCLOUD_AUTH_PLUGIN True
 end
 
 ## aliases

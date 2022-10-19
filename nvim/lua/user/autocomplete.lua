@@ -1,6 +1,7 @@
 -- Set options for the completion popup
 vim.opt.completeopt = { 'menuone', 'noselect' }
 
+
 -- local kind_icons = {
 --   Text = "T",
 --   Method = "M",
@@ -28,16 +29,15 @@ vim.opt.completeopt = { 'menuone', 'noselect' }
 --   Operator = "",
 --   TypeParameter = ""
 -- }
-local cmp = require('cmp')
+  local cmp = require('cmp')
 local luasnip = require('luasnip')
 
+-- go to https://
 cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
       luasnip.lsp_expand(args.body) -- For `luasnip` users.
-      -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-      -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
     end,
   },
 
@@ -48,21 +48,21 @@ cmp.setup({
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-e>'] = cmp.mapping.close(),
     ['<C-y>'] = cmp.mapping.confirm {
-
       behavior = cmp.ConfirmBehavior.Instert,
       select = true,
     },
-    ['<C-space>'] = cmp.mapping.complete(),
   },
   formatting = {
+    fields = { 'abbr', 'kind', 'menu' },
     format = function(entry, vim_item)
       -- Kind icons
       -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
       -- Source
       vim_item.menu = ({
-        buffer = "[Buffer]",
         nvim_lsp = "[LSP]",
-        vsnip = "[Snippet]",
+        luasnip = "[Snippet]",
+        buffer = "[Buffer]",
+        path = "[Path]",
       })[entry.source.name]
       return vim_item
     end
@@ -70,23 +70,44 @@ cmp.setup({
   sources = {
     { name = 'nvim_lsp' },
     { name = 'nvim_lua' },
-    { name = 'vsnip' },
+    { name = 'luasnip' },
+    { name = 'path' },
     { name = 'buffer', keyword_length = 5 },
+  },
+  view = {
+    entries = 'native'
   },
 })
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline('/', {
+  mapping = {
+    ['<C-n>'] = cmp.mapping.select_next_item(),
+    ['<C-p>'] = cmp.mapping.select_prev_item(),
+    ['<C-y>'] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Instert,
+      select = true,
+    },
+  },
+  view = { entries = "custom" },
   sources = {
-    { name = 'buffer' }
-  }
+    { name = 'path' }
+  },
 })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
-  sources = cmp.config.sources({
+  mapping = {
+    ['<C-n>'] = cmp.mapping.select_next_item(),
+    ['<C-p>'] = cmp.mapping.select_prev_item(),
+    ['<C-y>'] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Instert,
+      select = true,
+    },
+  },
+  view = { entries = "custom" },
+  sources = {
+    { name = 'cmdline' },
     { name = 'path' }
-  }, {
-    { name = 'cmdline' }
-  })
+  }
 })

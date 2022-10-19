@@ -9,6 +9,7 @@ o.tabstop = 2
 
 -- Colors
 -- vim.g.colors_name = 'PaperColor'
+-- misspellling 
 vim.o.termguicolors = true
 vim.g.colors_name = 'kanagawa'
 o.background = 'dark'
@@ -26,6 +27,9 @@ o.swapfile = false
 
 -- Make the yank buffer available in clipboard and vice verca
 o.clipboard = 'unnamedplus'
+
+-- Remove command line when not using it
+o.ch = 0
 
 -- set cursorline
 o.cursorline = true

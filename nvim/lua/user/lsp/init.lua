@@ -33,10 +33,10 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<c-k>', ':lua vim.lsp.buf.signature_help()<cr>', opts)
   buf_set_keymap('n', '<leader>af', ':lua vim.lsp.buf.code_action()<cr>', opts)
   buf_set_keymap('n', '<leader>rn', ':lua vim.lsp.buf.rename()<cr>', opts)
-  if client.resolved_capabilities.document_formatting then
+  if client.server_capabilities.document_formatting then
     vim.api.nvim_command [[augroup Format]]
     vim.api.nvim_command [[autocmd! * <buffer>]]
-    vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
+    vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
     vim.api.nvim_command [[augroup END]]
   end
 end

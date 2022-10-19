@@ -11,10 +11,11 @@ require('packer').startup(
     use 'NLKNguyen/papercolor-theme'
     use 'rebelot/kanagawa.nvim'
     use 'christoomey/vim-tmux-navigator'
-    use {
-      'nvim-treesitter/nvim-treesitter',
-      commit = '668de0951a36ef17016074f1120b6aacbe6c4515',
-    }
+    use 'nvim-treesitter/nvim-treesitter'
+    -- use {
+    --   'nvim-treesitter/nvim-treesitter',
+    --   commit = '668de0951a36ef17016074f1120b6aacbe6c4515',
+    -- }
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer'
 
