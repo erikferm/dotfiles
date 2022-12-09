@@ -11,16 +11,16 @@ local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
   local opts = { noremap = true }
-  buf_set_keymap('n', 'gd', ':lua vim.lsp.buf.definition()<cr>zz', opts)
-  buf_set_keymap('n', 'gD', ':lua vim.lsp.buf.declaration()<cr>', opts)
-  buf_set_keymap('n', 'gi', ':lua vim.lsp.buf.implementation()<cr>', opts)
-  buf_set_keymap('n', 'gw', ':lua vim.lsp.buf.document_symbol()<cr>', opts)
-  buf_set_keymap('n', 'gw', ':lua vim.lsp.buf.workspace_symbol()<cr>', opts)
-  buf_set_keymap('n', 'gr', ':lua vim.lsp.buf.references()<cr>', opts)
-  buf_set_keymap('n', 'gt', ':lua vim.lsp.buf.type_definition()<cr>', opts)
-  buf_set_keymap('n', 'K', ':lua vim.lsp.buf.hover()<cr>', opts)
-  buf_set_keymap('n', '<leader>af', ':lua vim.lsp.buf.code_action()<cr>', opts)
-  buf_set_keymap('n', '<leader>rn', ':lua vim.lsp.buf.rename()<cr>', opts)
+  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>zz', opts)
+  buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
+  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
+  buf_set_keymap('n', 'gw', '<cmd>lua vim.lsp.buf.workspace_symbol()<cr>', opts)
+  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
+  buf_set_keymap('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
+  buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
+  buf_set_keymap('i', '<c-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
+  buf_set_keymap('n', '<leader>af', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+  buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
   if client.server_capabilities.document_formatting then
     vim.api.nvim_command [[augroup Format]]
     vim.api.nvim_command [[autocmd! * <buffer>]]
