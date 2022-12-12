@@ -52,5 +52,5 @@ keymap.set('n', 'N', 'Nzzzv', opts)
 -- Clean search highlight
 keymap.set('n', '<leader><space>', ':noh<cr>', opts)
 
-keymap.set('n', '<leader>h', ':split<cr>', opts)
-keymap.set('n', '<leader>v', ':vsplit<cr>', opts)
+keymap.set('n', '<leader>h', '<cmd>split<cr>', opts)
+keymap.set('n', '<leader>v', '<cmd>vsplit<cr>', opts)
