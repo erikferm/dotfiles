@@ -31,7 +31,6 @@ require('packer').startup(
     use 'hrsh7th/cmp-cmdline'
     use 'saadparwaiz1/cmp_luasnip'
 
-    use 'preservim/nerdtree'
     use {
       'nvim-lualine/lualine.nvim',
       requires = {
