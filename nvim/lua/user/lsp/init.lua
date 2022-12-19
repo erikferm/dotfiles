@@ -3,6 +3,7 @@ local go = require('user.lsp.gopls')
 local pyright = require('user.lsp.pyright')
 local yaml = require('user.lsp.yaml')
 local terraform = require('user.lsp.terraform')
+local rust = require('user.lsp.rust')
 
 -- Setup lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -32,8 +33,7 @@ end
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 local lspconfig = require('lspconfig')
 
-local servers = { lua, go, pyright, yaml, terraform }
-
+local servers = { lua, go, pyright, yaml, terraform, rust}
 for _, lsp in ipairs(servers) do
   lspconfig[lsp.name].setup {
     on_attach = on_attach,
