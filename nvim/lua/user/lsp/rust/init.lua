@@ -7,3 +7,4 @@ server = {
   settings = {}
 }
 return server
+
