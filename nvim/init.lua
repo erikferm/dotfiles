@@ -1,7 +1,1 @@
-require('user.config')
-require('user.plugins')
-require('user.lualine')
-require('user.treesitter')
-require('user.autocomplete')
-require('user.lsp')
-require('user.telescope.config')
+require('erikferm')

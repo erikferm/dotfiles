@@ -1,2 +1,2 @@
 require("erikferm.plugins")
-require("erikferm.keymaps")
+require("erikferm.config")
