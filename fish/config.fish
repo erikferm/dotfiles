@@ -34,6 +34,11 @@ set -Ux PYENV_ROOT $HOME/.pyenv
 set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
 pyenv init - | source
 
+## Rust stuff
+set -x RUSTUP_HOME $HOME/.rustup
+set -x CARGO_HOME $HOME/.cargo
+set -ax PATH $CARGO_HOME/bin
+
 ## LC vars
 set -x LANG en_US.UTF-8
 set -x LC_ALL en_US.UTF-8
