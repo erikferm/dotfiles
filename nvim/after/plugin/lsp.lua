@@ -6,7 +6,7 @@ lsp.ensure_installed({
   'gopls',
   'pyright',
   'sumneko_lua',
-  'rust_analyzer',
+  'rust_analyzer'
 })
 
 lsp.configure('sumneko_lua',{
