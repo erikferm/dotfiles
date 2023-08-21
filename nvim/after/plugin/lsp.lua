@@ -35,6 +35,17 @@ lsp.configure('pyright',{
   }
 })
 
+lsp.format_on_save({
+  format_opts = {
+    async = false,
+    timeout_ms = 10000,
+  },
+  servers = {
+    ['lua_ls'] = {'lua'},
+    ['gopls'] = {'go'},
+  }
+})
+
 lsp.set_preferences({
   suggest_lsp_servers = true,
   setup_servers_on_start = true,
