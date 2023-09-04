@@ -9,7 +9,7 @@ lsp.ensure_installed({
   'rust_analyzer'
 })
 
-lsp.configure('lua_ls',{
+lsp.configure('lua_ls', {
   settings = {
     Lua = {
       diagnostics = { globals = { 'vim', 'use' } },
@@ -21,7 +21,7 @@ lsp.configure('lua_ls',{
   }
 })
 
-lsp.configure('pyright',{
+lsp.configure('pyright', {
   settings = {
     python = {
       analysis = {
@@ -41,8 +41,8 @@ lsp.format_on_save({
     timeout_ms = 10000,
   },
   servers = {
-    ['lua_ls'] = {'lua'},
-    ['gopls'] = {'go'},
+    ['lua_ls'] = { 'lua' },
+    ['gopls'] = { 'go' },
   }
 })
 
@@ -63,7 +63,7 @@ lsp.set_preferences({
 })
 
 local cmp = require('cmp')
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
   ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
@@ -76,7 +76,7 @@ lsp.setup_nvim_cmp({
 
 lsp.on_attach(function(client, bufnr)
   _ = client
-  local opts = {buffer = bufnr, remap = false}
+  local opts = { buffer = bufnr, remap = false }
 
   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
   vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
