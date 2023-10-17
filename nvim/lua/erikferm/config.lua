@@ -33,10 +33,8 @@ o.ch = 0
 
 -- set cursorline
 o.cursorline = true
-
 -- don't do recursive remapping
 local opts = { noremap = true }
-
 -- Change windows with ctrl - hjkl
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', opts)
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', opts)
