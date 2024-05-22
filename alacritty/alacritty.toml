@@ -1,7 +1,11 @@
 [shell]
-args = ["--login"]
-program = "/opt/homebrew/bin/fish"
-
+args = [
+  "new-session",
+  "-A",
+  "-s",
+  "main"
+  ]
+program = "/opt/homebrew/bin/tmux"
 [[colors.indexed_colors]]
 color = "0xffa066"
 index = 16
