@@ -40,25 +40,64 @@ require("lazy").setup({
           light = "lotus"
         },
       })
-
       -- setup must be called before loading
       vim.cmd("colorscheme kanagawa")
     end
   },
+
+  {
+    "mfussenegger/nvim-dap",
+    dependencies = {
+      "leoluz/nvim-dap-go"
+    },
+    config = function()
+      require("dap-go").setup()
+      local dap = require("dap")
+      vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint)
+      vim.keymap.set("n", "<F1>", dap.continue)
+      vim.keymap.set("n", "<F2>", dap.step_into)
+      vim.keymap.set("n", "<F3>", dap.step_over)
+      vim.keymap.set("n", "<F4>", dap.step_back)
+    end
+  },
+
   "nvim-telescope/telescope.nvim",
   "nvim-lua/plenary.nvim",
   "christoomey/vim-tmux-navigator",
   "kyazdani42/nvim-web-devicons",
   "folke/which-key.nvim",
-  { "folke/neoconf.nvim", cmd = "Neoconf" },
-  "folke/lazydev.nvim",
-  "hrsh7th/nvim-cmp",
+  { "folke/neoconf.nvim",   cmd = "Neoconf" },
+  {
+    "folke/lazydev.nvim",
+    ft = "lua", -- only load on lua files
+    opts = {
+      library = {
+        -- See the configuration section for more details
+        -- Load luvit types when the `vim.uv` word is found
+        { path = "luvit-meta/library", words = { "vim%.uv" } },
+      },
+    },
+  },
+  { "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
+  {                                        -- optional completion source for require statements and module annotations
+    "hrsh7th/nvim-cmp",
+    opts = function(_, opts)
+      opts.sources = opts.sources or {}
+      table.insert(opts.sources, {
+        name = "lazydev",
+        group_index = 0, -- set group index to 0 to skip loading LuaLS completions
+      })
+    end,
+  },
   "hrsh7th/cmp-nvim-lsp",
-  "hrsh7th/cmp-nvim-lua",
   "neovim/nvim-lspconfig",
+  "L3MON4D3/LuaSnip",
+
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
+
   "nvim-lualine/lualine.nvim",
+
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
