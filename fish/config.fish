@@ -2,16 +2,22 @@
 source ~/.config/fish/themes/kanagawa.fish
 
 set arch (arch)
-if [ "$arch" = "arm64" ]
-  echo "AAAARM"
-  eval (/opt/homebrew/bin/brew shellenv)
-else if [ "$arch" = "i386" ]
-  echo "INTEEEEL"
-  eval (/usr/local/bin/brew shellenv)
-end 
 
-# Add brew installations to path
-set -ax PATH (brew --prefix)/bin
+# OSX specific setup (mostly brew stuff)
+if test (uname) = "Darwin"
+  if [ "$arch" = "arm64" ]
+    echo "AAAARM"
+    eval (/opt/homebrew/bin/brew shellenv)
+  else if [ "$arch" = "i386" ]
+    echo "INTEEEEL"
+    eval (/usr/local/bin/brew shellenv)
+  end 
+  # Add brew installations to path
+  set -ax PATH (brew --prefix)/bin
+  ## Java stuff
+  #
+  set -x JAVA_HOME (brew --prefix)'/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home/'
+end
 
 ## CDPath
 set -x CDPATH . ~/code/src/github.com/
@@ -23,16 +29,16 @@ set -x EDITOR nvim
 set -x GOPATH ~/code
 set -ax PATH $GOPATH/bin
 
-## Java stuff
-set -x JAVA_HOME (brew --prefix)'/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home/'
 
 ## DBT stuff
 set -x DBT_USER erik
 
 ## PYENV stuff
-set -Ux PYENV_ROOT $HOME/.pyenv
-set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
-pyenv init - | source
+if type -q pyenv
+  set -Ux PYENV_ROOT $HOME/.pyenv
+  set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+  pyenv init - | source
+end
 
 ## Rust stuff
 set -x RUSTUP_HOME $HOME/.rustup
