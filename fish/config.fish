@@ -38,9 +38,10 @@ set -ax PATH $GOPATH/bin
 set -x DBT_USER erik
 
 ## PYENV stuff
+set -Ux PYENV_ROOT $HOME/.pyenv
+#set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+set -ax PATH $PYENV_ROOT/bin
 if type -q pyenv
-  set -Ux PYENV_ROOT $HOME/.pyenv
-  set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
   pyenv init - | source
 end
 
