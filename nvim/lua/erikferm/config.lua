@@ -9,7 +9,7 @@ o.tabstop = 2
 
 -- Colors
 -- vim.g.colors_name = 'PaperColor'
--- misspellling 
+-- misspellling
 vim.o.termguicolors = true
 vim.g.colors_name = 'kanagawa'
 o.background = 'dark'
@@ -28,13 +28,11 @@ o.swapfile = false
 -- Make the yank buffer available in clipboard and vice verca
 o.clipboard = 'unnamedplus'
 
--- Remove command line when not using it
-o.ch = 0
-
 -- set cursorline
 o.cursorline = true
 -- don't do recursive remapping
 local opts = { noremap = true }
+
 -- Change windows with ctrl - hjkl
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', opts)
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', opts)

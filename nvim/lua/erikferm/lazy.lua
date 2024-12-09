@@ -45,6 +45,7 @@ require("lazy").setup({
       vim.cmd("colorscheme kanagawa")
     end
   },
+  "L3MON4D3/LuaSnip",
   "nvim-telescope/telescope.nvim",
   "nvim-lua/plenary.nvim",
   "christoomey/vim-tmux-navigator",
