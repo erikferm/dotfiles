@@ -1,5 +1,18 @@
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
 local o = vim.opt
--- Leader key
+-- 
 vim.g.mapleader = ','
 -- Tabs
 o.expandtab = true
@@ -48,3 +61,12 @@ vim.api.nvim_set_keymap('n', '<leader><space>', ':noh<cr>', opts)
 
 vim.api.nvim_set_keymap('n', '<leader>h', '<cmd>split<cr>', opts)
 vim.api.nvim_set_keymap('n', '<leader>v', '<cmd>vsplit<cr>', opts)
+
+require("lazy").setup({
+  spec = {
+    -- import your plugins
+    { import = "plugins" },
+  },
+  -- automatically check for plugin updates
+  checker = { enabled = true },
+})
