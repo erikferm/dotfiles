@@ -21,10 +21,7 @@ o.softtabstop = 0
 o.tabstop = 2
 
 -- Colors
--- vim.g.colors_name = 'PaperColor'
--- misspellling
 vim.o.termguicolors = true
-vim.g.colors_name = 'kanagawa'
 o.background = 'dark'
 
 -- Encoding
@@ -59,12 +56,13 @@ vim.api.nvim_set_keymap('n', 'N', 'Nzzzv', opts)
 -- Clean search highlight
 vim.api.nvim_set_keymap('n', '<leader><space>', ':noh<cr>', opts)
 
-vim.api.nvim_set_keymap('n', '<leader>h', '<cmd>split<cr>', opts)
-vim.api.nvim_set_keymap('n', '<leader>v', '<cmd>vsplit<cr>', opts)
+-- Vim splits
+vim.api.nvim_set_keymap('n', '<leader>hs', '<cmd>split<cr>', opts)
+vim.api.nvim_set_keymap('n', '<leader>vs', '<cmd>vsplit<cr>', opts)
 
 require("lazy").setup({
   spec = {
-    -- import your plugins
+    -- import my plugins
     { import = "plugins" },
   },
   -- automatically check for plugin updates
