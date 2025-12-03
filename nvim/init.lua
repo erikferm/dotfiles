@@ -1,1 +1,1 @@
-require('erikferm')
+require('config')
