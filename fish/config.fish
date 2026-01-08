@@ -71,3 +71,5 @@ alias tmux="tmux -u -f ~/.config/tmux/tmux.conf"
 
 # Created by `pipx` on 2025-10-22 11:26:28
 set PATH $PATH /Users/erik.ferm/.local/bin
+
+set PATH $PATH /Users/erikferm/code/github.com/dbt-capital/env/bin
