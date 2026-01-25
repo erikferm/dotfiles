@@ -1,23 +1,26 @@
 return {
   {
-    'saghen/blink.cmp',
-    dependencies = 'rafamadriz/friendly-snippets',
-
-    -- use a release tag to download pre-built binaries
-    version = 'v0.*',
+    "saghen/blink.cmp",
+    dependencies = "rafamadriz/friendly-snippets",
+    version = "1.*",
     opts = {
-      keymap = { preset = 'default' },
+
+      keymap = { preset = "default" },
 
       appearance = {
-        use_nvim_cmp_as_default = true,
-        nerd_font_variant = 'mono'
+        nerd_font_variant = "mono",
       },
-      signature = {
-        enabled = true,
-        window = {
-          border = "rounded",
-        }
-      }
+      completion = { documentation = { auto_show = false } },
+      sources = {
+        default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+        providers = {
+          lazydev = {
+            name = "LazyDev",
+            module = "lazydev.integrations.blink",
+            score_offset = 100,
+          },
+        },
+      },
     },
-  }
+  },
 }
