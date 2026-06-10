@@ -33,9 +33,14 @@ set -x EDITOR nvim
 set -x GOPATH ~/code
 set -ax PATH $GOPATH/bin
 
+## DBT capital stuff
+set PATH $PATH /Users/erikferm/code/github.com/dbt-capital/env/bin
 
 ## DBT stuff
 set -x DBT_USER erik
+
+## AWS
+set -x AWS_PROFILE prod
 
 ## PYENV stuff
 set -Ux PYENV_ROOT $HOME/.pyenv
@@ -65,11 +70,25 @@ if type -q gcloud
   set -x USE_GKE_GCLOUD_AUTH_PLUGIN True
 end
 
+## fnm (Fast Node Manager)
+fnm env --use-on-cd | source
+
+# start direnv
+direnv hook fish | source
+
 ## aliases
 alias vim="nvim"
 alias tmux="tmux -u -f ~/.config/tmux/tmux.conf"
 
-# Created by `pipx` on 2025-10-22 11:26:28
-set PATH $PATH /Users/erik.ferm/.local/bin
 
-set PATH $PATH /Users/erikferm/code/github.com/dbt-capital/env/bin
+
+# pnpm
+set -gx PNPM_HOME "/Users/erikferm/Library/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init2.fish 2>/dev/null || :
